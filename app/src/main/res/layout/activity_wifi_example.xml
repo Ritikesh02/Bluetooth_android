@@ -12,7 +12,8 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan Wifi Network" />
+        android:text="Scan Wifi Network"
+        android:layout_gravity="center_horizontal" />
 
     <ListView
         android:id="@+id/lst"
