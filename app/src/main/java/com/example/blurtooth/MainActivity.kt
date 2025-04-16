@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                             val deviceName = device.name
                             val macAddress = device.address
                             list.add("Name: $deviceName \n MAC Address: $macAddress")
+
                         }
                         listView = findViewById(R.id.pairedDeivies)
                         aAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
