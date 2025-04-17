@@ -30,7 +30,7 @@ class WifiActivityExample : AppCompatActivity() {
 
         wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val btn = findViewById<Button>(R.id.button)
-        lstview = findViewById(R.id.lst)  // Ensure your XML ListView has id="lst"
+        lstview = findViewById(R.id.lst)
 
         // Request location permission if not granted
         if (ContextCompat.checkSelfPermission(
@@ -66,8 +66,15 @@ class WifiActivityExample : AppCompatActivity() {
     }
 
     private fun displayWifiNetworks(scanResults: List<ScanResult>) {
-        val wifiList = scanResults.map { it.SSID }
-        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, wifiList)
-        lstview.adapter = adapter
+        val list = ArrayList<String>()
+        if (scanResults.isNotEmpty()) {
+            for (result in scanResults) {
+                list.add("SSID: ${result.SSID}\nMAC Address: ${result.BSSID}")
+            }
+            adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
+            lstview.adapter = adapter  // Set the adapter to the ListView
+        } else {
+            Toast.makeText(this, "No WiFi networks found", Toast.LENGTH_SHORT).show()
+        }
     }
 }
