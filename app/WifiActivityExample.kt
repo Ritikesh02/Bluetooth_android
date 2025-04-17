@@ -88,7 +88,7 @@ class WifiActivityExample : AppCompatActivity() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "Permission granted. Tap the button to scan WiFi.", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Location permission is required for Wifi......", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Permission denied. Cannot scan WiFi.", Toast.LENGTH_SHORT).show()
             }
         }
     }
