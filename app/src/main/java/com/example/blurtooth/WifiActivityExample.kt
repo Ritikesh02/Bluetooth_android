@@ -72,7 +72,7 @@ class WifiActivityExample : AppCompatActivity() {
                 list.add("SSID: ${result.SSID}\nMAC Address: ${result.BSSID}")
             }
             adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
-            lstview.adapter = adapter  // Set the adapter to the ListView
+            lstview.adapter = adapter
         } else {
             Toast.makeText(this, "No WiFi networks found", Toast.LENGTH_SHORT).show()
         }
